@@ -2,14 +2,19 @@ import { useState,useEffect } from "react";
 import './App.css';
 import Board from './components/Board';
 import ToolsPanel from './components/ToolsPanel';
+import {BrowserRouter, Route, Routes,useParams} from "react-router-dom"
+import LevelsNav from "./components/LevelsNav";
+import targetsArray from "./data/targetsArray";
 
 const initStylesUser = {width:80,height:80,radius:0,color:'Salmon'}
-const initStylesTarget = {width:60,height:60,radius:20,color:'Salmon'}
+
 
 
 function App() {
   const [stylesUser, setStylesUser] = useState(initStylesUser)
-  const [stylesTarget, setStylesTarget] = useState(initStylesTarget)
+  const [stylesTarget, setStylesTarget] = useState(targetsArray[1])
+  const {level} = useParams();
+  console.log(level)
 
   function isEqual(shape1, shape2) {
    return JSON.stringify(shape1) === JSON.stringify(shape2) 
@@ -24,8 +29,14 @@ function App() {
  
   return (
     <>
+    <BrowserRouter>
+    <LevelsNav/>
+    <Routes>
+      <Route path=":level" element={<h2>Level {level}</h2>}/> 
+    </Routes>
     <Board stylesUser={stylesUser} stylesTarget={stylesTarget}/>
     <ToolsPanel styles={stylesUser}  setStyles={setStylesUser}/>
+    </BrowserRouter>
     </>
     );
 }
