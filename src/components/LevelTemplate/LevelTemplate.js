@@ -18,8 +18,8 @@ function LevelTemplate() {
   return (
     <>
       <h1>Welcome to level {level}</h1>
-      <Board />
-      <ToolsPanel />
+      {/* <Board /> */}
+      {/* <ToolsPanel /> */}
     </>
   );
 }

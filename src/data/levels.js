@@ -3,3 +3,5 @@ const levels = [
   ['width', 'height', 'border-radius'],
   ['red', 'green', 'blue'],
 ];
+
+export default levels;

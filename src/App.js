@@ -1,7 +1,7 @@
 import { useState, useEffect, createContext } from 'react';
 import './App.css';
 import { BrowserRouter, Outlet, Route, Routes } from 'react-router-dom';
-import LevelsNav from './components/LevelsNav';
+import LevelsNav from './components/LevelsNav/LevelsNav';
 import LevelTemplate from './components/LevelTemplate/LevelTemplate';
 
 import defaultStyles from './data/defaultStyles';
@@ -23,11 +23,13 @@ function App() {
   return (
     <>
       <StylesContex.Provider
-        stylesUser={stylesUser}
-        setStylesUser={setStylesUser}
-        stylesTarget={stylesTarget}
-        setStylesTarget={setStylesTarget}
-        defaultStyles={defaultStyles}
+        value={{
+          stylesUser,
+          setStylesUser,
+          stylesTarget,
+          setStylesTarget,
+          defaultStyles,
+        }}
       >
         <BrowserRouter>
           <LevelsNav />

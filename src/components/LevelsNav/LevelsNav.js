@@ -1,26 +1,21 @@
-import { NavLink, Outlet } from 'react-router-dom';
-import targetsArray from '../data/targetsArray';
-import styled from 'styled-components';
+import { NavLink } from 'react-router-dom';
+import levels from '../../data/levels';
 import './LevelsNav.css';
 import { v4 } from 'uuid';
-
-const Level = styled.span`
-  padding: 4px;
-  color: black;
-  background-color: aliceblue;
-`;
+import LevelTab from './LevelTab';
 
 function LevelsNav() {
+  console.log(levels);
   return (
     <nav>
-      {targetsArray.map((value, index) => {
+      {levels.map((value, index) => {
         return (
           <NavLink
             key={v4()}
-            to={`/${index + 1}`}
+            to={`/level-${index + 1}`}
             style={{ textDecoration: 'none' }}
           >
-            <Level>Level {index + 1}</Level>
+            <LevelTab>Level {index + 1}</LevelTab>
           </NavLink>
         );
       })}
