@@ -1,18 +1,8 @@
-import styled from 'styled-components';
+// imports styled components
 import FlexRow from '../styles/layout/FlexRow';
-
-const Button = styled.button`
-  width: 60px;
-  height: 50px;
-`;
-const Header = styled.h1`
-  color: purple;
-`;
-const ButtonContainer = styled.div`
-  display: inline-block;
-  border: black solid;
-  padding: 6px;
-`;
+import Button from './Button';
+import ButtonContainer from './ButtonContainer';
+import Header from './Header';
 
 function ToolButton({ name, stylesUser, setStylesUser, amount }) {
   const key = name.toLowerCase();

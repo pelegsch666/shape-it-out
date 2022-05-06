@@ -1,6 +1,6 @@
 import FlexRow from '../styles/layout/FlexRow';
 import FlexCol from '../styles/layout/FlexCol';
-import Shape from './Shape';
+import Shape from '../Shape/Shape';
 
 import styled from 'styled-components';
 
