@@ -5,7 +5,6 @@ import { v4 } from 'uuid';
 import LevelTab from './LevelTab';
 
 function LevelsNav() {
-  console.log(levels);
   return (
     <nav>
       {levels.map((value, index) => {

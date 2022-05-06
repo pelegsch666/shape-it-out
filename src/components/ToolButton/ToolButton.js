@@ -4,14 +4,26 @@ import Button from './Button';
 import ButtonContainer from './ButtonContainer';
 import Header from './Header';
 
-function ToolButton({ name, stylesUser, setStylesUser, amount }) {
-  const key = name.toLowerCase();
+// imports context
+import StylesContex from '../../data/StylesContex';
+import { useContext } from 'react';
 
+// more imports
+import fullDict from '../../data/dicts';
+
+function ToolButton({ name }) {
+  const { stylesUser, setStylesUser } = useContext(StylesContex);
   function handleClick(name, e) {
     if (e.target.innerHTML === '+') {
-      setStylesUser({ ...stylesUser, [key]: +stylesUser[key] + amount });
+      setStylesUser({
+        ...stylesUser,
+        [name]: +stylesUser[name] + fullDict[name].resolution,
+      });
     } else if (e.target.innerHTML === '-') {
-      setStylesUser({ ...stylesUser, [key]: +stylesUser[key] - amount });
+      setStylesUser({
+        ...stylesUser,
+        [name]: +stylesUser[name] - fullDict[name].resolution,
+      });
     }
   }
 
@@ -19,7 +31,7 @@ function ToolButton({ name, stylesUser, setStylesUser, amount }) {
     <>
       <ButtonContainer>
         <Header>
-          {name}: <span>{stylesUser[key]}</span>
+          {name}: <span>{stylesUser[name]}</span>
         </Header>
         <FlexRow position="center">
           <Button onClick={(e) => handleClick(name, e)}>+</Button>

@@ -1,8 +1,8 @@
-import { useState, useEffect, createContext } from 'react';
+import { useState, useEffect } from 'react';
 import './App.css';
-import { BrowserRouter, Outlet, Route, Routes } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 import LevelsNav from './components/LevelsNav/LevelsNav';
-import LevelTemplate from './components/LevelTemplate/LevelTemplate';
+import Routing from './components/Routing/Routing';
 
 import defaultStyles from './data/defaultStyles';
 
@@ -13,12 +13,11 @@ import StylesContex from './data/StylesContex';
 function App() {
   const [stylesUser, setStylesUser] = useState(defaultStyles);
   const [stylesTarget, setStylesTarget] = useState(defaultStyles);
+  const [isEqualState, setIsEqualState] = useState(false);
 
   useEffect(() => {
-    isEqual(stylesUser, stylesTarget);
-    // TODO: create some component for result
-    console.log(isEqual(stylesUser, stylesTarget));
-  }, [stylesUser]);
+    setIsEqualState(isEqual(stylesUser, stylesTarget));
+  }, [stylesUser, stylesTarget]);
 
   return (
     <>
@@ -33,19 +32,9 @@ function App() {
       >
         <BrowserRouter>
           <LevelsNav />
-          <Routes>
-            <Route
-              path="/"
-              element={
-                <>
-                  <h1>Shape it OUT</h1>
-                  <Outlet />
-                </>
-              }
-            >
-              <Route path=":level" element={<LevelTemplate />} />
-            </Route>
-          </Routes>
+          <h1>Shape it OUT</h1>
+          {isEqualState ? <h2>Correct!</h2> : <h2>Keep Trying</h2>}
+          <Routing />
         </BrowserRouter>
       </StylesContex.Provider>
     </>

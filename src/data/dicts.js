@@ -14,18 +14,18 @@ const propertiesDict = {
 const valuesDict = {
   red: {
     min: 0,
-    max: 255,
-    resolution: 5,
+    max: 245,
+    resolution: 10,
   },
   green: {
     min: 0,
-    max: 255,
-    resolution: 5,
+    max: 245,
+    resolution: 10,
   },
   blue: {
     min: 0,
-    max: 255,
-    resolution: 5,
+    max: 245,
+    resolution: 10,
   },
 };
 

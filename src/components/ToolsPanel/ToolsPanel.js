@@ -1,24 +1,16 @@
 import ToolButton from '../ToolButton/ToolButton';
 import FlexRow from '../styles/layout/FlexRow';
 import { v4 } from 'uuid';
-import fullDict from '../../data/dicts';
+import levels from '../../data/levels';
 
-function ToolsPanel({ setStylesUser, stylesUser, level }) {
-  // TODO: render automatically according to user default styles.
+function ToolsPanel({ level }) {
+  const levelIndex = Number(level.split('-')[1]) - 1;
 
   return (
     <>
       <FlexRow position="center">
-        {level.map((value) => {
-          return (
-            <ToolButton
-              key={v4()}
-              name={value}
-              setStylesUser={setStylesUser}
-              stylesUser={stylesUser}
-              amount={fullDict[value].resolution}
-            />
-          );
+        {levels[levelIndex].map((value) => {
+          return <ToolButton key={v4()} name={value} />;
         })}
       </FlexRow>
     </>

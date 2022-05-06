@@ -1,16 +1,19 @@
+// import styled components
 import FlexRow from '../styles/layout/FlexRow';
 import FlexCol from '../styles/layout/FlexCol';
+import ShapeContainer from './ShapeContainer';
+import Header from './Header';
+
+// import react components
 import Shape from '../Shape/Shape';
 
-import styled from 'styled-components';
+// import context
+import { useContext } from 'react';
+import StylesContex from '../../data/StylesContex';
 
-const ShapeContainer = styled.div`
-  border: solid red;
-`;
+function Board() {
+  const { stylesUser, stylesTarget } = useContext(StylesContex);
 
-const Header = styled.h1``;
-
-function Board({ stylesUser, stylesTarget }) {
   return (
     <>
       <FlexRow position="space-evenly" height="500px">
