@@ -1,52 +1,42 @@
-import styled from "styled-components";
-import Board from "./Board";
-import FlexRowCenter from "../styles/layout/FlexRow";
-import Shape from "./Shape";
+import styled from 'styled-components';
+import FlexRow from '../styles/layout/FlexRow';
 
 const Button = styled.button`
-width: 60px;
-height: 50px;
-`
+  width: 60px;
+  height: 50px;
+`;
 const Header = styled.h1`
-color: purple;
-`
+  color: purple;
+`;
 const ButtonContainer = styled.div`
-display: inline-block;
-border : black solid;
-padding: 6px;
-`
+  display: inline-block;
+  border: black solid;
+  padding: 6px;
+`;
 
+function ToolButton({ name, stylesUser, setStylesUser, amount }) {
+  const key = name.toLowerCase();
 
-
-function ToolButton({name,styles,setStyles,amount}){
-
-function handleClick(name,e){
-  const key = name.toLowerCase()
-   if(e.target.innerHTML === '+'){
-    setStyles({...styles,[key]: +styles[key] + amount})
-   } else if(e.target.innerHTML === '-'){
-    setStyles({...styles,[key]: +styles[key] - amount})
-   }
-  
-   
-}
-
-
-
+  function handleClick(name, e) {
+    if (e.target.innerHTML === '+') {
+      setStylesUser({ ...stylesUser, [key]: +stylesUser[key] + amount });
+    } else if (e.target.innerHTML === '-') {
+      setStylesUser({ ...stylesUser, [key]: +stylesUser[key] - amount });
+    }
+  }
 
   return (
-      <>
+    <>
       <ButtonContainer>
-      <Header>{name}</Header>
-      <FlexRowCenter>
-      <Button onClick={(e) => handleClick(name,e)}>+</Button>
-      <Button onClick={(e) => handleClick(name,e)}>-</Button>
-      </FlexRowCenter>
+        <Header>
+          {name}: <span>{stylesUser[key]}</span>
+        </Header>
+        <FlexRow position="center">
+          <Button onClick={(e) => handleClick(name, e)}>+</Button>
+          <Button onClick={(e) => handleClick(name, e)}>-</Button>
+        </FlexRow>
       </ButtonContainer>
-
-      </>
-  )
-
-
+    </>
+  );
 }
-export default ToolButton
+export default ToolButton;

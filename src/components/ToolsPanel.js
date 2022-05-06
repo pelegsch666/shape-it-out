@@ -1,26 +1,33 @@
-import ToolButton from "./ToolButton";
-import FlexRow from "../styles/layout/FlexRow";
+import ToolButton from './ToolButton';
+import FlexRow from '../styles/layout/FlexRow';
 
+function ToolsPanel({ setStylesUser, stylesUser }) {
+  // TODO: render automatically according to user default styles.
 
-
-
-
-
-function ToolsPanel({setStyles,styles}){
- 
-    return(
-     <>
-     <FlexRow position='center'>
-     <ToolButton name="Width" setStyles={setStyles} styles={styles} amount={10}/>
-     <ToolButton name="Height" setStyles={setStyles} styles={styles} amount={10}/>
-     <ToolButton name="Radius" setStyles={setStyles} styles={styles} amount={5}/>
-     </FlexRow>
-     </>
- )
-
-
-
-
+  return (
+    <>
+      <FlexRow position="center">
+        <ToolButton
+          name="Width"
+          setStylesUser={setStylesUser}
+          stylesUser={stylesUser}
+          amount={10}
+        />
+        <ToolButton
+          name="Height"
+          setStylesUser={setStylesUser}
+          stylesUser={stylesUser}
+          amount={10}
+        />
+        <ToolButton
+          name="Radius"
+          setStylesUser={setStylesUser}
+          stylesUser={stylesUser}
+          amount={5}
+        />
+      </FlexRow>
+    </>
+  );
 }
 
 export default ToolsPanel;
