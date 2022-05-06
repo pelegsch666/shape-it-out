@@ -17,7 +17,7 @@ function GenerateTarget({ level }) {
 
   useEffect(() => {
     updateTarget();
-  }, []);
+  }, [level]);
 
   function handleClick() {
     updateTarget();

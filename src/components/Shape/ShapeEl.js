@@ -10,10 +10,10 @@ const ShapeEl = styled.div`
   background-color: ${({ styles }) =>
     getRGBValues(styles.red, styles.green, styles.blue)};
 
-  border-top: ${({ styles }) => styles['border-top']};
-  border-right: ${({ styles }) => styles['border-right']};
-  border-bottom: ${({ styles }) => styles['border-bottom']};
-  border-left: ${({ styles }) => styles['border-left']};
+  border-top-width: ${({ styles }) => styles['border-top']}px;
+  border-right-width: ${({ styles }) => styles['border-right']}px;
+  border-bottom-width: ${({ styles }) => styles['border-bottom']}px;
+  border-left-width: ${({ styles }) => styles['border-left']}px;
 `;
 
 export default ShapeEl;
