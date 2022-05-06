@@ -20,7 +20,7 @@ function ToolsPanel({ setStylesUser, stylesUser }) {
           amount={10}
         />
         <ToolButton
-          name="Radius"
+          name="Border-radius"
           setStylesUser={setStylesUser}
           stylesUser={stylesUser}
           amount={5}

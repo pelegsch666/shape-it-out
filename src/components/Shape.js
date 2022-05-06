@@ -19,7 +19,7 @@ const ShapeEl = styled.div`
 `;
 
 function Shape({ styles }) {
-  console.log(styles.height);
+  console.log(styles['border-radius']);
   return <>{<ShapeEl styles={styles} />}</>;
 }
 
