@@ -6,13 +6,12 @@ import StylesContex from '../../data/StylesContex';
 
 function GenerateTarget({ level }) {
   const levelIndex = getLevelIndex(level);
-  const { setStylesTarget, setStylesUser, defaultStyles } =
-    useContext(StylesContex);
+  const { setStylesTarget, setStylesUser, defaultStyles } = useContext(StylesContex);
 
   function updateTarget() {
     const newTarget = generateTarget(levels[levelIndex]);
-    setStylesTarget({ ...defaultStyles, ...newTarget });
-    setStylesUser({ ...defaultStyles });
+    setStylesTarget({ ...defaultStyles, ...newTarget, ...levels[levelIndex].defaultStyles });
+    setStylesUser({ ...defaultStyles, ...levels[levelIndex].defaultStyles });
   }
 
   useEffect(() => {

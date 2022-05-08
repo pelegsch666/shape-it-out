@@ -16,24 +16,42 @@ const propertiesDict = {
   },
 };
 
+const borderDict = {
+  'border-right-width': {
+    min: 70,
+    max: 150,
+    resolution: 10,
+  },
+  'border-bottom-width': {
+    min: 70,
+    max: 150,
+    resolution: 10,
+  },
+  'border-left-width': {
+    min: 70,
+    max: 150,
+    resolution: 10,
+  },
+};
+
 const valuesDict = {
   red: {
     min: 0,
-    max: 245,
+    max: 255,
     resolution: 15,
   },
   green: {
     min: 0,
-    max: 245,
+    max: 255,
     resolution: 15,
   },
   blue: {
     min: 0,
-    max: 245,
+    max: 255,
     resolution: 15,
   },
 };
 
-const fullDict = { ...propertiesDict, ...valuesDict };
+const fullDict = { ...propertiesDict, ...valuesDict, ...borderDict };
 
 export default fullDict;

@@ -9,14 +9,24 @@ export function getRandomIntInclusive(min, max, resolution) {
 }
 
 export function generateTarget(level) {
-  // level is an array of strings of the properties.
-  // Example: [width, height].
+  // level is an object with two keys:
+  // example:
+  // {
+  //   properties: ['width', 'height'],
+  //   defaultStyles: {
+  //     width: 100,
+  //     height: 100,
+  //   },
+  // },
 
   const res = { ...defaultStyles };
 
-  for (let property of level) {
+  for (let property of level.properties) {
     const { min, max, resolution } = fullDict[property];
-    res[property] = getRandomIntInclusive(min, max, resolution);
+
+    if (typeof defaultStyles[property] === 'number') {
+      res[property] = getRandomIntInclusive(min, max, resolution);
+    }
   }
 
   return res;

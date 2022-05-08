@@ -20,24 +20,22 @@ function App() {
   }, [stylesUser, stylesTarget]);
 
   return (
-    <>
-      <StylesContex.Provider
-        value={{
-          stylesUser,
-          setStylesUser,
-          stylesTarget,
-          setStylesTarget,
-          defaultStyles,
-        }}
-      >
-        <BrowserRouter>
-          <LevelsNav />
-          <h1>Shape it OUT</h1>
-          {isEqualState ? <h2>Correct!</h2> : <h2>Keep Trying</h2>}
-          <Routing />
-        </BrowserRouter>
-      </StylesContex.Provider>
-    </>
+    <StylesContex.Provider
+      value={{
+        stylesUser,
+        setStylesUser,
+        stylesTarget,
+        setStylesTarget,
+        defaultStyles,
+      }}
+    >
+      <BrowserRouter>
+        <LevelsNav />
+        <h1>Shape it OUT</h1>
+        {isEqualState ? <h2>Correct!</h2> : <h2>Keep Trying</h2>}
+        <Routing />
+      </BrowserRouter>
+    </StylesContex.Provider>
   );
 }
 

@@ -15,15 +15,19 @@ function ToolButton({ name }) {
   const { stylesUser, setStylesUser } = useContext(StylesContex);
   function handleClick(name, e) {
     if (e.target.innerHTML === '+') {
-      setStylesUser({
-        ...stylesUser,
-        [name]: +stylesUser[name] + fullDict[name].resolution,
-      });
+      if (+stylesUser[name] <= fullDict[name].max - fullDict[name].resolution) {
+        setStylesUser({
+          ...stylesUser,
+          [name]: +stylesUser[name] + fullDict[name].resolution,
+        });
+      }
     } else if (e.target.innerHTML === '-') {
-      setStylesUser({
-        ...stylesUser,
-        [name]: +stylesUser[name] - fullDict[name].resolution,
-      });
+      if (+stylesUser[name] >= fullDict[name].min + fullDict[name].resolution) {
+        setStylesUser({
+          ...stylesUser,
+          [name]: +stylesUser[name] - fullDict[name].resolution,
+        });
+      }
     }
   }
 

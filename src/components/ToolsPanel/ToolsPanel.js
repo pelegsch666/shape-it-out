@@ -2,14 +2,16 @@ import ToolButton from '../ToolButton/ToolButton';
 import FlexRow from '../styles/layout/FlexRow';
 import { v4 } from 'uuid';
 import levels from '../../data/levels';
+import { getLevelIndex } from '../../data/helpers';
 
 function ToolsPanel({ level }) {
-  const levelIndex = Number(level.split('-')[1]) - 1;
+  // level is a string in the fornat "level-n"
+  const levelIndex = getLevelIndex(level);
 
   return (
     <>
       <FlexRow position="center">
-        {levels[levelIndex].map((value) => {
+        {levels[levelIndex].properties.map((value) => {
           return <ToolButton key={v4()} name={value} />;
         })}
       </FlexRow>
